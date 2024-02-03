@@ -1,0 +1,91 @@
+---
+import "../styles/styles.css";
+import "../types/types";
+import datasetJson from "../data/dataset.json";
+const dataset: Year[] = datasetJson;
+
+const getTotalLaidOff = function (dataset: Year[]): number {
+  return dataset.reduce(
+    (total, year) =>
+      total +
+      year.months.reduce(
+        (total, month) =>
+          total + month.layoffs.reduce((sum, info) => sum + info.laidOff, 0),
+        0
+      ),
+    0
+  );
+};
+
+const monthNames = [
+  "Январь",
+  "Февраль",
+  "Март",
+  "Апрель",
+  "Май",
+  "Июнь",
+  "Июль",
+  "Август",
+  "Сентябрь",
+  "Октябрь",
+  "Ноябрь",
+  "Декабрь"
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>IT Layoffs Tracker</title>
+  </head>
+  <body>
+    <body>
+      <h2 class="page-title">
+        Сколько людей уволено в IT-индустрии России за последние 365 дней?
+      </h2>
+
+      <h2 class="more-than">более</h2>
+      <h1 class="year-total">
+        {getTotalLaidOff(dataset)}
+      </h1>
+
+      <div class="months">
+        {
+          dataset.map((year) => (
+            <div>
+              <h2>{year.year}</h2>
+              <div class="months">
+                {year.months.map((month) => (
+                  <div>{monthNames[month.month - 1]}</div>
+                  <ul class="layoffs">
+                    {month.layoffs.map(layoff => 
+                    <li class="layoff">{layoff.title}
+                      {layoff.link === "" ? <div></div> : <sup><a href={layoff.link} class="source"> [источник]</a></sup>}
+                    </li>)}
+                  </ul>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <footer>
+        Счётчик увольнений - это приблизительная оценка, <br />
+        которая использует точное или приблизительное число уволенных IT-специалистов,<br
+        />
+        либо нижнее значение, если известен диапазон.
+        <br /><br />
+        Исходный код доступен на <a
+          href="https://github.com/it-layoffs-tracker/website">GitHub</a
+        >
+        <br /><br />Создано и поддерживается <a
+          href="https://t.me/it_layoffs_tracker">IT Layoffs Tracker</a
+        >.
+      </footer>
+    </body>
+  </body>
+</html>

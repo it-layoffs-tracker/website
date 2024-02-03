@@ -1,0 +1,56 @@
+[
+  {
+    "year": 2024,
+    "months": [
+      {
+        "month": 2,
+        "layoffs": [
+          {
+            "day": 2,
+            "laidOff": 40,
+            "title": "X5 Digital увольняет 40 - 45 человек в связи с закрытием фуд-тех проекта.",
+            "link": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2023,
+    "months": [
+      {
+        "month": 12,
+        "layoffs": [
+          {
+            "day": 15,
+            "laidOff": 76,
+            "title": "Разработчик единой медицинской информационной системы увольняет несколько десятков человек.",
+            "link": "https://habr.com/ru/articles/780808/"
+          }
+        ]
+      },
+      {
+        "month": 10,
+        "layoffs": [
+          {
+            "day": 28,
+            "laidOff": 29,
+            "title": "Ансистемс сокращает сотрудников. Следующий шаг — банкротство?",
+            "link": "https://ruitunion.org/news/2023-10-28-layoffs-in-ansystems/"
+          }
+        ]
+      },
+      {
+        "month": 2,
+        "layoffs": [
+          {
+            "day": 6,
+            "laidOff": 600,
+            "title": "Российский производитель ПК увольняет сотни ИТ-специалистов",
+            "link": "https://www.cnews.ru/news/top/2023-02-06_v_odnoj_iz_krupnejshih_it-kompanij"
+          }
+        ]
+      }
+    ]
+  }
+]
